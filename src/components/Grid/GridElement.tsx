@@ -14,7 +14,6 @@ const GridElement: FC<Props> = ({ id, hasBomb, activated, onClick }) => {
     <div
       className={`grid-element ${activated ? "inset-shadow" : "shadow"}`}
       onClick={() => {
-        console.log("BOMBA:", hasBomb, "id:", id);
         handleClick();
       }}
     >

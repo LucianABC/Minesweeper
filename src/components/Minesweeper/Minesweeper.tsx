@@ -20,7 +20,6 @@ const Minesweeper: FC<Props> = ({ gameMode }) => {
   }, [gameMode]);
 
   useEffect(() => {
-    console.log(status);
     if (status !== STATUS.GAME_ACTIVE) {
       clearInterval(interval.current);
     }
@@ -31,7 +30,6 @@ const Minesweeper: FC<Props> = ({ gameMode }) => {
   }, [points]);
 
   const start = () => {
-    console.log("Game restarted");
     setPoints(0);
     setStatus(STATUS.GAME_ACTIVE);
     setCells(initializeGame(gameMode));
@@ -40,7 +38,6 @@ const Minesweeper: FC<Props> = ({ gameMode }) => {
   };
 
   const handleTimer = () => {
-    console.log("handletimer");
     setTimer((timer) => timer + 1);
   };
 
