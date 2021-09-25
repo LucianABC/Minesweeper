@@ -1,0 +1,21 @@
+/* Colors */
+
+$main-background: #a5ccd1;
+$container-background: #949ba0;
+$text: #e4edf2;
+$grid-background: #949ba0;
+$dark-gray: #60676c;
+
+.inset-shadow {
+  border: 3px solid;
+  border-top-color: $dark-gray;
+  border-left-color: $dark-gray;
+  color: $text;
+}
+
+.shadow {
+  border: 3px solid;
+  border-bottom-color: $dark-gray;
+  border-right-color: $dark-gray;
+  color: $text;
+}

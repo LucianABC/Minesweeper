@@ -1,4 +1,4 @@
-@import "/src/types/variables.scss";
+@import "/src/constants/variables.scss";
 
 .container {
   border: 1px solid black;
@@ -8,14 +8,39 @@
   display: flex;
   padding: 2rem 1rem;
   flex-direction: column;
-  & > * {
-    border: 3px solid;
-    border-top-color: $dark-gray;
-    border-left-color: $dark-gray;
-  }
+
   header {
     display: flex;
     padding: 1rem;
     justify-content: space-between;
   }
+  .restart {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 3rem 3rem;
+    width: 4rem;
+
+    padding: 0.5rem;
+    cursor: pointer;
+    &:active {
+      border: 3px solid;
+      border-top-color: $dark-gray;
+      border-left-color: $dark-gray;
+      color: $text;
+
+      background-image: url("../../img/sun.svg");
+    }
+  }
+}
+
+.gameLost {
+  background-image: url("../../img/clouds.svg");
+}
+
+.gameActive {
+  background-image: url("../../img/rainbow.svg");
+}
+
+.gameWon {
+  background-image: url("../../img/goldpot.svg");
 }

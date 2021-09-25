@@ -1,4 +1,4 @@
-@import "/src/types/variables.scss";
+@import "/src/constants/variables.scss";
 
 .grid {
   display: grid;
@@ -10,6 +10,6 @@
   margin: 1rem 0;
 
   .grid-element {
-    background-color: red;
+    cursor: pointer;
   }
 }
