@@ -4,9 +4,6 @@ export enum STATUS {
   GAME_ACTIVE = 'gameActive',
 }
 
-export const COL_COUNT = 9
-export const ROW_COUNT = 9
-
 export enum GAME_MODE {
   EASY = 'easy',
   MEDIUM = 'medium',

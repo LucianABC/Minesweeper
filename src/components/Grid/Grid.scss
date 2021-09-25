@@ -3,12 +3,8 @@
 .grid {
   display: grid;
   background-color: $grid-background;
-
   min-height: 25rem;
-  grid-template-columns: repeat(9, 1fr);
-  grid-template-rows: repeat(9, 1fr);
   margin: 1rem 0;
-
   .grid-element {
     display: flex;
     align-items: center;
@@ -18,4 +14,19 @@
     height: 50px;
     padding: 4px;
   }
+}
+
+.easy {
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+}
+
+.medium {
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}
+
+.hard {
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(30, 1fr);
 }

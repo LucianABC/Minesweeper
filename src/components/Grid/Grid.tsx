@@ -19,7 +19,7 @@ const Grid: FC<Props> = ({ cells, handleClick }) => {
     return gridElements;
   };
 
-  return <div className={`grid inset-shadow`}>{renderGridElements()}</div>;
+  return <div className={`grid easy inset-shadow`}>{renderGridElements()}</div>;
 };
 
 export default Grid;
