@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState, useRef } from "react";
 import { Grid, Screen } from "../";
 import "./Minesweeper.scss";
 import { STATUS, GAME_MODE, Cell } from "src/constants/GameStatus";
@@ -13,9 +13,22 @@ const Minesweeper: FC<Props> = ({ gameMode }) => {
   const [status, setStatus] = useState<STATUS>(STATUS.GAME_ACTIVE);
   const [cells, setCells] = useState<Cell[]>([]);
 
+  const interval = useRef<any>(null);
+
   useEffect(() => {
     start();
   }, [gameMode]);
+
+  useEffect(() => {
+    console.log(status);
+    if (status !== STATUS.GAME_ACTIVE) {
+      clearInterval(interval.current);
+    }
+  }, [status]);
+
+  useEffect(() => {
+    if (points === 50) setStatus(STATUS.GAME_WON);
+  }, [points]);
 
   const start = () => {
     console.log("Game restarted");
@@ -23,14 +36,22 @@ const Minesweeper: FC<Props> = ({ gameMode }) => {
     setStatus(STATUS.GAME_ACTIVE);
     setCells(initializeGame(gameMode));
     setTimer(0);
+    interval.current = setInterval(handleTimer, 1000);
+  };
+
+  const handleTimer = () => {
+    console.log("handletimer");
+    setTimer((timer) => timer + 1);
   };
 
   const handleClick = (id: number) => {
-    let modifiedCells = [...cells];
-    modifiedCells[id] = { ...modifiedCells[id], activated: true };
-    setCells(modifiedCells);
-    if (modifiedCells[id].hasBomb) setStatus(STATUS.GAME_LOST);
-    else setPoints((points) => points + 10);
+    if (status === STATUS.GAME_ACTIVE) {
+      let modifiedCells = [...cells];
+      modifiedCells[id] = { ...modifiedCells[id], activated: true };
+      setCells(modifiedCells);
+      if (modifiedCells[id].hasBomb) setStatus(STATUS.GAME_LOST);
+      else setPoints((points) => points + 10);
+    }
   };
 
   return (
