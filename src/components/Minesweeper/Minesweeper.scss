@@ -1,0 +1,21 @@
+@import "/src/types/variables.scss";
+
+.container {
+  border: 1px solid black;
+  width: 30rem;
+  min-height: 30rem;
+  background-color: $container-background;
+  display: flex;
+  padding: 2rem 1rem;
+  flex-direction: column;
+  & > * {
+    border: 3px solid;
+    border-top-color: $dark-gray;
+    border-left-color: $dark-gray;
+  }
+  header {
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,31 @@
+@import "/src/types/variables.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  background-color: $main-background;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+  color: $text;
+  text-align: center;
+  padding: 60px 40px;
+
+  .main {
+    width: 100%;
+    height: 1100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+  }
+
+  .header {
+    width: 100%;
+  }
+}
