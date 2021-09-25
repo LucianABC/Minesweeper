@@ -2,7 +2,7 @@
 
 .container {
   border: 1px solid black;
-  width: 30rem;
+  min-width: 30rem;
   min-height: 30rem;
   background-color: $container-background;
   display: flex;

@@ -3,13 +3,19 @@
 .grid {
   display: grid;
   background-color: $grid-background;
-  width: 100%;
-  height: 25rem;
+
+  min-height: 25rem;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(9, 1fr);
   margin: 1rem 0;
 
   .grid-element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    width: 50px;
+    height: 50px;
+    padding: 4px;
   }
 }

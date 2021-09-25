@@ -32,5 +32,14 @@ export const plantBombs = (cells: Cell[], bombIds: number[]):Cell[]=>{
     const hasBomb = bombIds.some((id)=>id===cell.id)
     return {...cell, hasBomb}
   })  
-  
 }
+
+export const initializeGame = (gameMode: GAME_MODE) => {
+  const emptyCells = createCells(gameMode);
+  const bombIds = generateBombIds(
+    ROWS_AND_COLS[gameMode].mines,
+    emptyCells.length
+  );
+  const cells = plantBombs(emptyCells, bombIds);
+  return cells;
+};

@@ -17,7 +17,7 @@ export const ROWS_AND_COLS = {
   [GAME_MODE.EASY]: {
     rowCount: 9,
     colCount: 9,
-    mines: 10,
+    mines: 20,
   },
   [GAME_MODE.MEDIUM]: {
     rowCount: 16,

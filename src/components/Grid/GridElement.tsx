@@ -1,16 +1,32 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Cell } from "src/constants/GameStatus";
+import bomb from "src/img/bomb.svg";
+import gold from "src/img/gold.svg";
+interface Props extends Cell {
+  onClick: (n: number) => void;
+}
 
-const GridElement: FC<Cell> = ({ id, hasBomb, activated }) => {
-  const [clicked, setClicked] = useState<boolean>(activated);
+const GridElement: FC<Props> = ({ id, hasBomb, activated, onClick }) => {
+  const handleClick = () => {
+    onClick(id);
+  };
   return (
     <div
-      className={`grid-element ${clicked ? "inset-shadow" : "shadow"}`}
+      className={`grid-element ${activated ? "inset-shadow" : "shadow"}`}
       onClick={() => {
         console.log("BOMBA:", hasBomb, "id:", id);
-        setClicked(true);
+        handleClick();
       }}
-    ></div>
+    >
+      {activated && (
+        <img
+          src={hasBomb ? bomb : gold}
+          width="100%"
+          height="100%"
+          alt={hasBomb ? "bomb" : "gold"}
+        />
+      )}
+    </div>
   );
 };
 
